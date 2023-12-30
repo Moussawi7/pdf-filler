@@ -15,7 +15,7 @@ pip install PDFFiller
 ```
 
 ## Usage
-
+You can find the full documentation [here](DOCUMENTATION.md)
 ```python
 from PDFFiller import PDFFiller, Template
 from PDFFiller.theme import Theme

@@ -1,7 +1,3 @@
-# PDFFiller Comprehensive Documentation
-
-PDFFiller is a Python library designed to streamline the process of filling PDF templates with dynamic content. It offers a versatile and user-friendly interface for customizing and generating PDF documents.
-
 ## Table of Contents
 
 1. [Installation](#installation)
