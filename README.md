@@ -87,4 +87,4 @@ We welcome contributions! If you'd like to enhance PDFFiller or report issues, p
 
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
