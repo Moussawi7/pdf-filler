@@ -1,0 +1,4 @@
+./exmaples/build/*
+.DS_Store
+.idea
+venv/
