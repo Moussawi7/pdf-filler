@@ -1,4 +1,4 @@
-from pdffiller.helpers import FitzHelper
+from PDFFiller.helpers import FitzHelper
 
 
 class DebugBoxBuilder:

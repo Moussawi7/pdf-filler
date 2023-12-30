@@ -1,5 +1,5 @@
-from pdffiller.constants.settings import Settings
-from pdffiller.constants.enums import ExportLibraries
+from PDFFiller.constants.settings import Settings
+from PDFFiller.constants.enums import ExportLibraries
 
 from .fitz_export_service import FitzExportService
 

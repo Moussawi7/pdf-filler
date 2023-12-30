@@ -1,8 +1,7 @@
-from fitz import TEXT_ALIGN_CENTER
-from pdffiller.helpers import FitzHelper
+from PDFFiller.helpers import FitzHelper
 
 
-class CheckMarkBuilder:
+class TextFieldBuilder:
 
     def __init__(self):
         self.fitz_helper = FitzHelper()
@@ -16,9 +15,8 @@ class CheckMarkBuilder:
         color = self.fitz_helper.convert_to_fitz_color(element.font.color)
         pdf_page.insert_textbox(
             rect=shape_rect,
-            buffer=element.symbol if element.checked else '',
+            buffer=element.value,
             fontname=element.font.family,
             fontsize=element.font.size,
-            align=TEXT_ALIGN_CENTER,
             color=color
         )

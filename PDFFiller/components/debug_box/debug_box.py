@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Optional
 
-from pdffiller.attributes import Color, Position
+from PDFFiller.attributes import Color, Position
 
 
 @dataclass

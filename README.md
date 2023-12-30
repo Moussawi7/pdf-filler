@@ -11,15 +11,16 @@ Welcome to PDFFiller, a Python library designed to streamline the process of pro
 - **Export Options:** Choose between exporting the filled PDF document as a file or as bytes, providing flexibility for various use cases.
 
 ```bash
-pip install pdffiller
+pip install PDFFiller
 ```
 
 ## Usage
+
 ```python
-from pdffiller import PDFFiller, Template
-from pdffiller.theme import Theme
-from pdffiller.components import TextField, CheckMark, TextFieldTheme
-from pdffiller.attributes import Font, Color, Position
+from PDFFiller import PDFFiller, Template
+from PDFFiller.theme import Theme
+from PDFFiller.components import TextField, CheckMark, TextFieldTheme
+from PDFFiller.attributes import Font, Color, Position
 
 theme = Theme(
     text_field=TextFieldTheme(
@@ -53,7 +54,7 @@ fields = [
             width=20,
             height=20,
         ),
-    
+
 ]
 
 template1 = Template(
@@ -73,7 +74,7 @@ result = (
 
 ## Contributing
 
-We welcome contributions! If you'd like to enhance PyPDFFiller or report issues, please check out our [contribution guidelines](CONTRIBUTING.md).
+We welcome contributions! If you'd like to enhance PDFFiller or report issues, please check out our [contribution guidelines](CONTRIBUTING.md).
 
 
 ## License

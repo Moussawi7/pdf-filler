@@ -1,4 +1,4 @@
-# Contributing to PyPDFFiller
+# Contributing to PDFFiller
 
 👍🎉 First off, thank you for considering contributing to PDFFiller! 🎉👍
 
@@ -30,9 +30,9 @@ The following is a set of guidelines for contributing to PDFFiller. These are ju
 
 ## Code of Conduct
 
-This project and everyone participating in it are governed by the [PDFFiller Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [example@email.com].
+This project and everyone participating in it are governed by the [PDFFiller Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [moussawidev@gmail.com].
 
 ## License
 
-By contributing to PDFFiller, you agree that your contributions will be licensed under the [MIT License](LICENSE).
+By contributing to PDFFiller, you agree that your contributions will be licensed under the [MIT License](LICENSE.md).
 

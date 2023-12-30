@@ -1,10 +1,10 @@
-from pdffiller import PDFFiller, Template
-from pdffiller.theme import Theme
-from pdffiller.components import TextField, TextFieldTheme, CheckMark, DebugBoxTheme, CheckMarkTheme, ImageBox, \
+from PDFFiller import PDFFiller, Template
+from PDFFiller.theme import Theme
+from PDFFiller.components import TextField, TextFieldTheme, CheckMark, DebugBoxTheme, CheckMarkTheme, ImageBox, \
     ImageBoxTheme
-from pdffiller.attributes import Font, Color, Position
-from pdffiller.exceptions import NothingToExport, UnableToBuild, UnableToExport
-from pdffiller.helpers.performance_decorator import performance_analysis
+from PDFFiller.attributes import Font, Color, Position
+from PDFFiller.exceptions import NothingToExport, UnableToBuild, UnableToExport
+from PDFFiller.helpers.performance_decorator import performance_analysis
 
 theme = Theme(
     text_field=TextFieldTheme(

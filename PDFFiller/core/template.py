@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Optional
 
-from pdffiller.theme.theme import Theme
+from PDFFiller.theme.theme import Theme
 
 
 @dataclass

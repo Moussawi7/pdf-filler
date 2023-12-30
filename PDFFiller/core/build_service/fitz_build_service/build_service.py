@@ -1,8 +1,8 @@
 import io
 import fitz
 
-from pdffiller.components import CheckMark, TextField, ImageBox, DebugBox
-from pdffiller.helpers import FitzHelper
+from PDFFiller.components import CheckMark, TextField, ImageBox, DebugBox
+from PDFFiller.helpers import FitzHelper
 
 from .text_field_builder import TextFieldBuilder
 from .check_mark_builder import CheckMarkBuilder

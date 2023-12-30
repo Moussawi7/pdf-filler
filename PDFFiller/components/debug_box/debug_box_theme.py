@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 
-from pdffiller.attributes import Color
+from PDFFiller.attributes import Color
 
 
 @dataclass

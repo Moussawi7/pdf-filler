@@ -1,5 +1,5 @@
-from pdffiller.constants.settings import Settings
-from pdffiller.constants.enums import BuildLibraries
+from PDFFiller.constants.settings import Settings
+from PDFFiller.constants.enums import BuildLibraries
 
 from .fitz_build_service import FitzBuildService
 

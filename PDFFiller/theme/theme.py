@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import Optional
 
-from pdffiller.components import TextFieldTheme, DebugBoxTheme, CheckMarkTheme, ImageBoxTheme
+from PDFFiller.components import TextFieldTheme, DebugBoxTheme, CheckMarkTheme, ImageBoxTheme
 
 
 @dataclass

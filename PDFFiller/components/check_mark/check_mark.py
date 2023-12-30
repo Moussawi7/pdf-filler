@@ -1,12 +1,13 @@
 from dataclasses import dataclass
 from typing import Optional
 
-from pdffiller.attributes import Font, Position
+from PDFFiller.attributes import Font, Position
 
 
 @dataclass
-class TextField:
+class CheckMark:
     key: str
-    value: str
+    checked: bool
     position: Position
+    symbol: Optional[str] = None
     font: Optional[Font] = None

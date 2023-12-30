@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from pdffiller.attributes import Position
+from PDFFiller.attributes import Position
 
 
 @dataclass

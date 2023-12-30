@@ -8,7 +8,7 @@ install_requires = [
 ]
 
 setup(
-    name='pdffiller',
+    name='PDFFiller',
     packages=find_packages(exclude=['examples']),
     version='0.1.0',
     install_requires=install_requires,
