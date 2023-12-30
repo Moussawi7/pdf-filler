@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to PDFFiller, a Python library designed to streamline the process of programmatically filling PDF documents with text, checkmarks, and images. With PDFFiller, developers can easily manipulate one or multiple pages, offering the flexibility to export the filled PDF document as a file or as bytes.
+Welcome to PDFFiller, a Python library built on top of [PyMuPDF](https://github.com/pymupdf/PyMuPDF) designed to streamline the process of programmatically filling PDF documents with text, checkmarks, and images. With PDFFiller, developers can easily manipulate one or multiple pages, offering the flexibility to export the filled PDF document as a file or as bytes.
 
 **Note: This Library is Under Active Development**
 
