@@ -9,5 +9,5 @@ class TextField:
     key: str
     value: str
     position: Position
-    dimension: Dimension
+    dimension: Optional[Dimension] = None
     font: Optional[Font] = None

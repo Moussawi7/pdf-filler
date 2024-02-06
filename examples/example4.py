@@ -5,7 +5,7 @@ from PDFFiller import PDFFiller, Template
 from PDFFiller.theme import Theme
 from PDFFiller.components import TextField, TextFieldTheme, CheckMark, CheckMarkTheme
 from PDFFiller.attributes import Font, Color, Position, Dimension
-from PDFFiller.helpers import load_theme
+from PDFFiller.helpers import load_theme, load_fields
 from PDFFiller.exceptions import NothingToExport, UnableToBuild, UnableToExport
 from PDFFiller.helpers.performance_decorator import performance_analysis
 
@@ -30,7 +30,14 @@ from PDFFiller.helpers.performance_decorator import performance_analysis
 #     ),
 # )
 theme = load_theme("./examples/theme4.yml")
-print(theme)
+fields = load_fields("./examples/fields4.yml")
+# print(fields)
+# values = [
+# TextFieldValue(
+#     key="text_last_name",
+#     value="Ali Moussawi"
+# )
+# ]
 
 fields1 = [
     TextField(
@@ -346,14 +353,14 @@ fields2 = [
 template1 = Template(
     source="./examples/files/sample1.pdf",
     theme=theme,
-    fields=fields1,
+    fields=fields,
 )
 
 
 template2 = Template(
     source="./examples/files/sample1.pdf",
     theme=theme,
-    fields=fields2,
+    fields=fields,
 )
 
 
@@ -368,7 +375,7 @@ def generate_document():
             .export(destination="./examples/build/export1.pdf")
             .done()
         )
-        print(result)
+        # print(result)
     except NothingToExport as e:
         print(e.code)
         raise e
