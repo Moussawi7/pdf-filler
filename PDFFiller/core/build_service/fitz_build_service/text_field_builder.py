@@ -9,8 +9,8 @@ class TextFieldBuilder:
     def build(self, pdf_page, element):
         shape_rect = (element.position.x,
                       element.position.y,
-                      element.position.x + element.position.width,
-                      element.position.y + element.position.height)
+                      element.position.x + element.dimension.width,
+                      element.position.y + element.dimension.height)
 
         color = self.fitz_helper.convert_to_fitz_color(element.font.color)
         pdf_page.insert_textbox(

@@ -8,13 +8,13 @@ class ImageBoxBuilder:
     def build(self, pdf_page, element):
         shape_rect = (element.position.x,
                       element.position.y,
-                      element.position.x + element.position.width,
-                      element.position.y + element.position.height)
+                      element.position.x + element.dimension.width,
+                      element.position.y + element.dimension.height)
 
         pdf_page.insert_image(
             rect=shape_rect,
             filename=element.path,
-            height=element.position.height,
-            width=element.position.width,
+            height=element.dimension.height,
+            width=element.dimension.width,
             keep_proportion=element.keep_proportion
         )

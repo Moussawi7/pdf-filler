@@ -1,0 +1,44 @@
+---
+version: "1.0"
+text_field:
+  font:
+    family: Helvetica
+    size: 11
+    color:
+      red: 24
+      green: 45
+      blue: 69
+  dimension:
+    width: 100
+    height: 22
+check_mark:
+  symbol: Y
+  font:
+    family: Helvetica
+    size: 11
+    color:
+      red: 50
+      green: 60
+      blue: 70
+  dimension:
+    width: 20
+    height: 20
+debug_box:
+  font:
+    family: Helvetica
+    size: 11
+    color:
+      red: 50
+      green: 60
+      blue: 70
+  background_color:
+      red: 0
+      green: 256
+      blue: 256
+  border_thickness: 0.8
+  border_color:
+      red: 256
+      green: 256
+      blue: 0
+image_box:
+  keep_proportion: true

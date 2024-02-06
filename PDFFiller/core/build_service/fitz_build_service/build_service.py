@@ -25,7 +25,8 @@ class FitzBuildService:
             debug_box_template,
             DebugBox(
                 key=field.key,
-                position=field.position
+                position=field.position,
+                dimension=field.dimension
             )
         )
         self.debug_box_builder.build(pdf_page, element)
@@ -40,27 +41,33 @@ class FitzBuildService:
         pdf_document = fitz.open(template.source)
         for field in template.fields:
             pdf_page = pdf_document[field.position.page]
-            if self.debug:
-                self._build_debug_box(pdf_page, field, template.theme.debug_box)
-                continue
 
             if type(field) == TextField:
                 element = self.fitz_helper.inherit_attributes(
                     template.theme.text_field,
                     field
                 )
+                if self.debug:
+                    self._build_debug_box(pdf_page, element, template.theme.debug_box)
+                    continue
                 self.text_field_builder.build(pdf_page, element)
             elif type(field) == CheckMark:
                 element = self.fitz_helper.inherit_attributes(
                     template.theme.check_mark,
                     field
                 )
+                if self.debug:
+                    self._build_debug_box(pdf_page, element, template.theme.debug_box)
+                    continue
                 self.check_mark_builder.build(pdf_page, element)
             elif type(field) == ImageBox:
                 element = self.fitz_helper.inherit_attributes(
                     template.theme.image_box,
                     field
                 )
+                if self.debug:
+                    self._build_debug_box(pdf_page, element, template.theme.debug_box)
+                    continue
                 self.image_box_builder.build(pdf_page, element)
             else:
                 raise NotImplementedError

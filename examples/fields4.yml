@@ -1,0 +1,14 @@
+---
+version: "1.0"
+text_fields:
+  - key: text_first_name
+    position:
+      page: 0
+      x: 200
+      y: 185
+check_marks:
+  - key: text_first_name
+    position:
+      page: 0
+      x: 200
+      y: 185
