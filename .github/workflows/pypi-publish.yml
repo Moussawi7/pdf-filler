@@ -13,6 +13,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Debug Secrets
+      run: |
+        echo "PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}"
+        echo "PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -28,7 +35,5 @@ jobs:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
-        echo ${{secrets.PYPI_USERNAME}} | sed 's/./& /g'
-        echo ${{secrets.PYPI_PASSWORD}} | sed 's/./& /g'
         python setup.py sdist bdist_wheel
         twine upload dist/*
