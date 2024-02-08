@@ -3,6 +3,7 @@ name: Python Package Publish
 on:
   release:
     types: [created]
+  workflow_dispatch: # Add manual trigger
 
 jobs:
   build:
