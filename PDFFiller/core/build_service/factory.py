@@ -8,7 +8,6 @@ class BuildServiceFactory:
 
     @staticmethod
     def build_object(debug, service=Settings.BUILD_LIBRARY_SERVICE.value):
-        print(service, BuildLibraries.FITZ.value)
         if service == BuildLibraries.FITZ.value:
             return FitzBuildService(debug)
 

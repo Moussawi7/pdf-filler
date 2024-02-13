@@ -2,7 +2,7 @@ from PDFFiller import PDFFiller, Template
 from PDFFiller.theme import Theme
 from PDFFiller.components import TextField, TextFieldTheme, CheckMark, DebugBoxTheme, CheckMarkTheme, ImageBox, \
     ImageBoxTheme
-from PDFFiller.attributes import Font, Color, Position
+from PDFFiller.attributes import Font, Color, Position, Dimension
 from PDFFiller.exceptions import NothingToExport, UnableToBuild, UnableToExport
 from PDFFiller.helpers.performance_decorator import performance_analysis
 
@@ -15,7 +15,7 @@ theme = Theme(
         )
     ),
     image_box=ImageBoxTheme(
-        keep_proportion=False
+        keep_proportion=True
     ),
     check_mark=CheckMarkTheme(
         symbol="×",
@@ -26,10 +26,14 @@ theme = Theme(
         )
     ),
     debug_box=DebugBoxTheme(
-        text_color=Color(255, 0, 0),
-        border_color=Color(0, 255, 0),
-        background_color=Color(0, 255, 0),
-        border_thickness=1
+        border_color=Color(255, 255, 0),
+        background_color=Color(0, 255, 255),
+        border_thickness=1,
+        font=Font(
+            family="Helvetica",
+            color=Color(255, 0, 0),
+            size=11
+        )
     )
 )
 
@@ -41,6 +45,8 @@ fields = [
             page=0,
             x=330,
             y=415,
+        ),
+        dimension=Dimension(
             width=100,
             height=21,
         ),
@@ -62,6 +68,8 @@ fields = [
             page=0,
             x=24,
             y=418,
+        ),
+        dimension=Dimension(
             width=15,
             height=15,
         ),
@@ -69,11 +77,13 @@ fields = [
     ImageBox(
         key="profile",
         path="./examples/files/sample.jpg",
-        keep_proportion=False,
+        keep_proportion=True,
         position=Position(
             page=0,
             x=0,
             y=0,
+        ),
+        dimension=Dimension(
             width=100,
             height=200,
         ),
@@ -97,23 +107,23 @@ template2 = Template(
 def generate_document():
     pdf_filler = PDFFiller(debug=False)
     try:
-        # query = pdf_filler.build(template1)
-        # for i in range(0, 100):
-        #     query = query.build(template1)
-        #
-        # result = query.export(destination="./documents/export1.pdf").done()
-        result = (
-            pdf_filler
-            .build(template1)
-            .build(template2)
-            .export(destination="./examples/build/export.pdf")
-            .build(template2)
-            .export(destination="./examples/build/export1.pdf")
-            .reset()
-            .build(template2)
-            .done()
-        )
-        print(result)
+        query = pdf_filler.build(template1)
+        for i in range(0, 500):
+            query = query.build(template1)
+
+        result = query.export(destination="./examples/build/export.pdf").done()
+        # result = (
+        #     pdf_filler
+        #     .build(template1)
+        #     .build(template2)
+        #     .export(destination="./examples/build/export.pdf")
+        #     .build(template2)
+        #     .export(destination="./examples/build/export1.pdf")
+        #     .reset()
+        #     .build(template2)
+        #     .done()
+        # )
+        #print(result)
     except NothingToExport as e:
         print("nothing to export", e.code)
     except UnableToBuild as e:

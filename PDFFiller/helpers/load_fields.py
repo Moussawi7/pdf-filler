@@ -1,6 +1,6 @@
 import yaml
 
-from ..components import TextField, CheckMark, ImageBoxTheme, DebugBoxTheme
+from ..components import TextField, CheckMark, ImageBox, ImageBoxTheme, DebugBoxTheme
 from ..attributes import Font, Color, Position, Dimension
 from ..theme import Theme
 
@@ -45,5 +45,15 @@ def load_fields(path):
                 )
             if checked:
                 field.checked = checked
+            fields.append(field)
+
+        for image_box in data_loaded.get("image_boxes", []):
+            dimension = image_box.get("dimension")
+            field = ImageBox(
+                key=image_box.get("key"),
+                path=image_box.get("path"),
+                position=Position(**image_box.get("position")),
+                dimension=Dimension(**dimension)
+            )
             fields.append(field)
     return fields

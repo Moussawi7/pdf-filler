@@ -32,8 +32,8 @@ debug_box:
       green: 60
       blue: 70
   background_color:
-      red: 0
-      green: 256
+      red: 256
+      green: 0
       blue: 256
   border_thickness: 0.8
   border_color:
@@ -42,3 +42,6 @@ debug_box:
       blue: 0
 image_box:
   keep_proportion: true
+  dimension:
+    width: 100
+    height: 100

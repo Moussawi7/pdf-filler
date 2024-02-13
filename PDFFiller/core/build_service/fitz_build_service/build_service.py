@@ -37,38 +37,54 @@ class FitzBuildService:
         pdf_document.close()
         return pdf_stream.getvalue()
 
+    def _fill_fields_with_values(self, fields, values):
+        for field in fields:
+            for value in values:
+                if field.key == value.key:
+                    field.__dict__.update(value.__dict__)
+        return fields
+
+    def _build_text_field(self, pdf_page, template, field):
+        element = self.fitz_helper.inherit_attributes(
+            template.theme.text_field,
+            field
+        )
+        if self.debug:
+            self._build_debug_box(pdf_page, element, template.theme.debug_box)
+            return
+        self.text_field_builder.build(pdf_page, element)
+
+    def _build_check_mark(self, pdf_page, template, field):
+        element = self.fitz_helper.inherit_attributes(
+            template.theme.check_mark,
+            field
+        )
+        if self.debug:
+            self._build_debug_box(pdf_page, element, template.theme.debug_box)
+            return
+        self.check_mark_builder.build(pdf_page, element)
+
+    def _build_image_box(self, pdf_page, template, field):
+        element = self.fitz_helper.inherit_attributes(
+            template.theme.image_box,
+            field
+        )
+        if self.debug:
+            self._build_debug_box(pdf_page, element, template.theme.debug_box)
+            return
+        self.image_box_builder.build(pdf_page, element)
+
     def build(self, template):
         pdf_document = fitz.open(template.source)
-        for field in template.fields:
+        fields = self._fill_fields_with_values(template.fields, template.values)
+        for field in fields:
             pdf_page = pdf_document[field.position.page]
-
             if type(field) == TextField:
-                element = self.fitz_helper.inherit_attributes(
-                    template.theme.text_field,
-                    field
-                )
-                if self.debug:
-                    self._build_debug_box(pdf_page, element, template.theme.debug_box)
-                    continue
-                self.text_field_builder.build(pdf_page, element)
+                self._build_text_field(pdf_page, template, field)
             elif type(field) == CheckMark:
-                element = self.fitz_helper.inherit_attributes(
-                    template.theme.check_mark,
-                    field
-                )
-                if self.debug:
-                    self._build_debug_box(pdf_page, element, template.theme.debug_box)
-                    continue
-                self.check_mark_builder.build(pdf_page, element)
+                self._build_check_mark(pdf_page, template, field)
             elif type(field) == ImageBox:
-                element = self.fitz_helper.inherit_attributes(
-                    template.theme.image_box,
-                    field
-                )
-                if self.debug:
-                    self._build_debug_box(pdf_page, element, template.theme.debug_box)
-                    continue
-                self.image_box_builder.build(pdf_page, element)
+                self._build_image_box(pdf_page, template, field)
             else:
                 raise NotImplementedError
 

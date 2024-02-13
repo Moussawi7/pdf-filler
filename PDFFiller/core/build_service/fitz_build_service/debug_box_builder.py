@@ -14,12 +14,11 @@ class DebugBoxBuilder:
                       element.position.y + element.dimension.height)
         shape.draw_rect(shape_rect)
 
-        color = self.fitz_helper.convert_to_fitz_color(element.font.color)
         shape.insert_textbox(
             rect=shape_rect,
             buffer=element.key,
             fontsize=element.font.size,
-            color=color
+            color=self.fitz_helper.convert_to_fitz_color(element.font.color)
         )
 
         shape.finish(

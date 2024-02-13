@@ -3,7 +3,7 @@
 from PDFFiller import PDFFiller, Template
 from PDFFiller.theme import Theme
 from PDFFiller.components import TextField, TextFieldTheme, CheckMark, CheckMarkTheme
-from PDFFiller.attributes import Font, Color, Position
+from PDFFiller.attributes import Font, Color, Position, Dimension
 from PDFFiller.exceptions import NothingToExport, UnableToBuild, UnableToExport
 from PDFFiller.helpers.performance_decorator import performance_analysis
 
@@ -16,7 +16,7 @@ theme = Theme(
         )
     ),
     check_mark=CheckMarkTheme(
-        symbol="X",
+        symbol="O",
         font=Font(
             family="Helvetica",
             color=Color(0, 0, 0),
@@ -33,6 +33,8 @@ fields = [
             page=0,
             x=130,
             y=155,
+        ),
+        dimension=Dimension(
             width=100,
             height=21,
         )
@@ -44,6 +46,8 @@ fields = [
             page=0,
             x=450,
             y=155,
+        ),
+        dimension=Dimension(
             width=100,
             height=21,
         )
@@ -55,6 +59,8 @@ fields = [
             page=0,
             x=130,
             y=172,
+        ),
+        dimension=Dimension(
             width=100,
             height=21,
         )
@@ -66,9 +72,11 @@ fields = [
             page=0,
             x=50,
             y=332,
+        ),
+        dimension=Dimension(
             width=20,
             height=20,
-        ),
+        )
     ),
     CheckMark(
         key="activity_2",
@@ -77,9 +85,11 @@ fields = [
             page=0,
             x=50,
             y=487,
+        ),
+        dimension=Dimension(
             width=20,
             height=20,
-        ),
+        )
     ),
 ]
 

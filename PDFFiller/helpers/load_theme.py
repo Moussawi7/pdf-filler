@@ -1,7 +1,7 @@
 import yaml
 
 from ..components import TextFieldTheme, CheckMarkTheme, ImageBoxTheme, DebugBoxTheme
-from ..attributes import Font, Color
+from ..attributes import Font, Color, Dimension
 from ..theme import Theme
 
 
@@ -36,6 +36,7 @@ def load_theme(path):
         if image_box is not None:
             theme.image_box = ImageBoxTheme(
                 keep_proportion=image_box.get("keep_proportion"),
+                dimension=Dimension(**image_box.get("dimension")),
             )
         debug_box = data_loaded.get("debug_box")
         if debug_box is not None:
