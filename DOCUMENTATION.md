@@ -26,7 +26,7 @@ from PDFFiller import PDFFiller, Template
 from PDFFiller.theme import Theme
 from PDFFiller.components import TextField, TextFieldTheme, CheckMark, DebugBoxTheme, CheckMarkTheme, ImageBox, \
     ImageBoxTheme
-from PDFFiller.attributes import Font, Color, Position
+from PDFFiller.attributes import Font, Color, Position, Dimension
 from PDFFiller.exceptions import NothingToExport, UnableToBuild, UnableToExport
 from PDFFiller.helpers.performance_decorator import performance_analysis
 
@@ -65,8 +65,10 @@ fields = [
             page=0,
             x=330,
             y=415,
+        ),
+        dimension=Dimension(
             width=100,
-            height=21,
+            height=21
         ),
         font=Font(
             family="Helvetica",
@@ -86,6 +88,8 @@ fields = [
             page=0,
             x=24,
             y=418,
+        ),
+        dimension=Dimension(
             width=15,
             height=15,
         ),
@@ -98,6 +102,8 @@ fields = [
             page=0,
             x=0,
             y=0,
+        ),
+        dimension=Dimension(
             width=100,
             height=200,
         ),
@@ -191,6 +197,7 @@ class TextField:
     key: str  # used in debug mode
     value: str  # the value that will be displayed
     position: Position  # the position of the field, check the attributes below
+    dimension: Dimension # the dimension of the field
     font: Optional[Font] = None  # the font details, usually inherited from the theme
 ```
 
@@ -203,6 +210,7 @@ class CheckMark:
     key: str  # used in debug mode
     checked: bool  # mark the field as checked or not
     position: Position  # the position of the field, check the attributes below
+    dimension: Dimension # the dimension of the field
     symbol: Optional[str] = None  # It is an 'X' by default
     font: Optional[Font] = None  # the font details, usually inherited from the theme
 ```
@@ -216,6 +224,7 @@ class ImageBox:
     key: str  # used in debug mode
     path: str  # the path of the image
     position: Position  # the position of the field, check the attributes below
+    dimension: Dimension # the dimension of the field
     keep_proportion: bool  # in order to make the image proportional or not to the box size
 ```
 
@@ -258,9 +267,25 @@ class Position:
     page: int
     x: int
     y: int
+```
+
+### Dimension
+
+```python
+class Dimension:
     width: int
     height: int
 ```
+
+## YAML templates
+
+### load_theme
+
+It loads the theme from a yaml file
+
+### load_fields
+
+it loads the fields from a yaml file
 
 ## Exceptions
 

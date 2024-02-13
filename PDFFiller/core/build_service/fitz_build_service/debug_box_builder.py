@@ -10,16 +10,15 @@ class DebugBoxBuilder:
         shape = pdf_page.new_shape()
         shape_rect = (element.position.x,
                       element.position.y,
-                      element.position.x + element.position.width,
-                      element.position.y + element.position.height)
+                      element.position.x + element.dimension.width,
+                      element.position.y + element.dimension.height)
         shape.draw_rect(shape_rect)
 
-        color = self.fitz_helper.convert_to_fitz_color(element.text_color)
         shape.insert_textbox(
             rect=shape_rect,
             buffer=element.key,
-            fontsize=element.text_size,
-            color=color
+            fontsize=element.font.size,
+            color=self.fitz_helper.convert_to_fitz_color(element.font.color)
         )
 
         shape.finish(

@@ -1,11 +1,13 @@
 from dataclasses import dataclass
+from typing import Optional
 
-from PDFFiller.attributes import Position
+from PDFFiller.attributes import Position, Dimension
 
 
 @dataclass
 class ImageBox:
     key: str
-    path: str
     position: Position
-    keep_proportion: bool
+    path: Optional[str] = ''
+    keep_proportion: Optional[bool] = False
+    dimension: Optional[Dimension] = None
