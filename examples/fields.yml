@@ -7,6 +7,8 @@ text_fields:
       page: 0
       x: 200
       y: 185
+    dimension:
+      width: 100
     font:
       family: Helvetica
       size: 11

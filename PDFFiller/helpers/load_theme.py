@@ -14,11 +14,16 @@ def load_theme(path):
         text_field = data_loaded.get("text_field")
         if text_field is not None:
             font = text_field.get("font")
+            dimension = text_field.get("dimension")
             theme.text_field = TextFieldTheme(
                 font=Font(
                     color=Color(**font.get("color")),
                     size=font.get("size"),
                     family=font.get("family")
+                ),
+                dimension=Dimension(
+                    width=dimension.get("width"),
+                    height=dimension.get("height")
                 )
             )
         check_mark = data_loaded.get("check_mark")

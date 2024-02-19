@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+from typing import Optional
 
 from PDFFiller.attributes import Font, Color, Dimension
 
@@ -10,7 +11,4 @@ class TextFieldTheme:
         size=12,
         family="Helvetica"
     ))
-    dimension: Dimension = field(default_factory=lambda: Dimension(
-        width=120,
-        height=24
-    ))
+    dimension: Optional[Dimension] = None
