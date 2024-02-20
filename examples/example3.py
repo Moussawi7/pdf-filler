@@ -1,6 +1,6 @@
 # yaml example
 from PDFFiller import PDFFiller, Template
-from PDFFiller.components import TextFieldValue, CheckMarkValue, ImageBoxValue
+from PDFFiller.components import TextFieldValue, CheckMarkValue, ImageBoxValue, SigningAreaValue
 from PDFFiller.helpers import load_theme, load_fields
 from PDFFiller.exceptions import NothingToExport, UnableToBuild, UnableToExport
 from PDFFiller.helpers.performance_decorator import performance_analysis
@@ -19,6 +19,10 @@ values = [
     ),
     ImageBoxValue(
         key="img_logo",
+        path="./examples/files/sample.jpg"
+    ),
+    SigningAreaValue(
+        key="signing_area_1",
         path="./examples/files/sample.jpg"
     )
 ]

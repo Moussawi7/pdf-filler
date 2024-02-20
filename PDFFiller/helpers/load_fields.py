@@ -1,8 +1,7 @@
 import yaml
 
-from ..components import TextField, CheckMark, ImageBox, ImageBoxTheme, DebugBoxTheme
+from ..components import TextField, CheckMark, ImageBox, SigningArea
 from ..attributes import Font, Color, Position, Dimension
-from ..theme import Theme
 
 
 def load_fields(path):
@@ -52,8 +51,22 @@ def load_fields(path):
             field = ImageBox(
                 key=image_box.get("key"),
                 path=image_box.get("path"),
-                position=Position(**image_box.get("position")),
-                dimension=Dimension(**dimension)
+                keep_proportion=image_box.get("keep_proportion"),
+                position=Position(**image_box.get("position"))
             )
+            if dimension:
+                field.dimension = Dimension(**dimension)
             fields.append(field)
+
+        for image_box in data_loaded.get("signing_areas", []):
+            dimension = image_box.get("dimension")
+            field = SigningArea(
+                key=image_box.get("key"),
+                path=image_box.get("path"),
+                position=Position(**image_box.get("position"))
+            )
+            if dimension:
+                field.dimension = Dimension(**dimension)
+            fields.append(field)
+
     return fields

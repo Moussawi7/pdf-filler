@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import Optional
 
-from PDFFiller.components import TextFieldTheme, DebugBoxTheme, CheckMarkTheme, ImageBoxTheme
+from PDFFiller.components import TextFieldTheme, DebugBoxTheme, CheckMarkTheme, ImageBoxTheme, SigningAreaTheme
 
 
 @dataclass
@@ -11,3 +11,4 @@ class Theme:
     text_field: Optional[TextFieldTheme] = field(default_factory=lambda: TextFieldTheme())
     check_mark: Optional[CheckMarkTheme] = field(default_factory=lambda: CheckMarkTheme())
     image_box: Optional[ImageBoxTheme] = field(default_factory=lambda: ImageBoxTheme())
+    signing_area: Optional[ImageBoxTheme] = field(default_factory=lambda: SigningAreaTheme())

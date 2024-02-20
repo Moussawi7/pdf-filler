@@ -34,3 +34,12 @@ image_boxes:
     dimension:
       width: 50
       height: 150
+signing_areas:
+  - key: signing_area_1
+    position:
+      page: 0
+      x: 100
+      y: 100
+    dimension:
+      width: 200
+      height: 200
