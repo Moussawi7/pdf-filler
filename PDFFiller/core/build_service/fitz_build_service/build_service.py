@@ -1,13 +1,14 @@
 import io
 import fitz
 
-from PDFFiller.components import CheckMark, TextField, ImageBox, DebugBox
+from PDFFiller.components import CheckMark, TextField, ImageBox, DebugBox, SigningArea
 from PDFFiller.helpers import FitzHelper
 
 from .text_field_builder import TextFieldBuilder
 from .check_mark_builder import CheckMarkBuilder
 from .debug_box_builder import DebugBoxBuilder
 from .image_box_builder import ImageBoxBuilder
+from .signing_area_builder import SigningAreaBuilder
 
 
 class FitzBuildService:
@@ -18,6 +19,7 @@ class FitzBuildService:
         self.text_field_builder = TextFieldBuilder()
         self.check_mark_builder = CheckMarkBuilder()
         self.image_box_builder = ImageBoxBuilder()
+        self.signing_area_builder = SigningAreaBuilder()
         self.debug_box_builder = DebugBoxBuilder()
 
     def _build_debug_box(self, pdf_page, field, debug_box_template):
@@ -74,6 +76,16 @@ class FitzBuildService:
             return
         self.image_box_builder.build(pdf_page, element)
 
+    def _build_signing_area(self, pdf_page, template, field):
+        element = self.fitz_helper.inherit_attributes(
+            template.theme.signing_area,
+            field
+        )
+        if self.debug:
+            self._build_debug_box(pdf_page, element, template.theme.debug_box)
+            return
+        self.signing_area_builder.build(pdf_page, element)
+
     def build(self, template):
         pdf_document = fitz.open(template.source)
         fields = self._fill_fields_with_values(template.fields, template.values)
@@ -85,6 +97,8 @@ class FitzBuildService:
                 self._build_check_mark(pdf_page, template, field)
             elif type(field) == ImageBox:
                 self._build_image_box(pdf_page, template, field)
+            elif type(field) == SigningArea:
+                self._build_signing_area(pdf_page, template, field)
             else:
                 raise NotImplementedError
 

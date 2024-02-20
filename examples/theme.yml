@@ -45,3 +45,7 @@ image_box:
   dimension:
     width: 100
     height: 100
+signing_area:
+  dimension:
+    width: 100
+    height: 100

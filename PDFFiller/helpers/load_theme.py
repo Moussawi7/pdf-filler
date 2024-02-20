@@ -1,6 +1,6 @@
 import yaml
 
-from ..components import TextFieldTheme, CheckMarkTheme, ImageBoxTheme, DebugBoxTheme
+from ..components import TextFieldTheme, CheckMarkTheme, ImageBoxTheme, SigningAreaTheme, DebugBoxTheme
 from ..attributes import Font, Color, Dimension
 from ..theme import Theme
 
@@ -42,6 +42,11 @@ def load_theme(path):
             theme.image_box = ImageBoxTheme(
                 keep_proportion=image_box.get("keep_proportion"),
                 dimension=Dimension(**image_box.get("dimension")),
+            )
+        signing_area = data_loaded.get("signing_area")
+        if signing_area is not None:
+            theme.image_box = SigningAreaTheme(
+                dimension=Dimension(**signing_area.get("dimension")),
             )
         debug_box = data_loaded.get("debug_box")
         if debug_box is not None:
