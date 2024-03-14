@@ -86,8 +86,13 @@ class FitzBuildService:
             return
         self.signing_area_builder.build(pdf_page, element)
 
+    def _read_pdf_document(self, source):
+        if type(source) == bytes:
+            return fitz.open(stream=source)
+        return fitz.open(source)
+
     def build(self, template):
-        pdf_document = fitz.open(template.source)
+        pdf_document = self._read_pdf_document(template.source)
         fields = self._fill_fields_with_values(template.fields, template.values)
         for field in fields:
             pdf_page = pdf_document[field.position.page]
