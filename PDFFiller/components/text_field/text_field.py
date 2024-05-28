@@ -8,6 +8,7 @@ from PDFFiller.attributes import Font, Position, Dimension
 class TextField:
     key: str
     position: Position
+    tag: Optional[str] = None
     value: Optional[str] = ''
     dimension: Optional[Dimension] = None
     font: Optional[Font] = None

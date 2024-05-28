@@ -13,6 +13,7 @@ def load_fields(path):
             font = text_field.get("font")
             field = TextField(
                 key=text_field.get("key"),
+                tag=text_field.get("tag"),
                 value=text_field.get("value"),
                 position=Position(**text_field.get("position"))
             )
